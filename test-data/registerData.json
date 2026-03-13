@@ -1,0 +1,54 @@
+{
+  "newUser": {
+    "firstName": "Jackson",
+    "lastName": "Smith",
+    "address": "123 Main St",
+    "city": "Anytown",
+    "state": "CA",
+    "zipCode": "12345",
+    "phoneNumber": "345-555-1234",
+    "ssn": "123-45-6789",
+    "username": "Jackson{{timestamp}}",
+    "password": "P@123Bank",
+    "confirmPassword": "P@123Bank"
+  },
+  "existingUser": {
+    "firstName": "Henry",
+    "lastName": "Doe",
+    "address": "123 Main St",
+    "city": "Anytown",
+    "state": "CA",
+    "zipCode": "12345",
+    "phoneNumber": "345-555-1234",
+    "ssn": "123-45-6789",
+    "username": "demoParabank",
+    "password": "P@123Bank",
+    "confirmPassword": "P@123Bank"
+  },
+  "passwordMismatch": {
+    "firstName": "Jane",
+    "lastName": "Smith",
+    "address": "456 Oak Ave",
+    "city": "Springfield",
+    "state": "NY",
+    "zipCode": "67890",
+    "phoneNumber": "212-555-9876",
+    "ssn": "987-65-4321",
+    "username": "janesmith_{{timestamp}}",
+    "password": "P@123Bank",
+    "confirmPassword": "WrongPass@999"
+  },
+  "missingRequiredFields": {
+    "firstName": "",
+    "lastName": "",
+    "address": "",
+    "city": "",
+    "state": "",
+    "zipCode": "",
+    "phoneNumber": "",
+    "ssn": "",
+    "username": "",
+    "password": "",
+    "confirmPassword": ""
+  }
+}
