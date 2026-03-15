@@ -1,8 +1,26 @@
 import { defineConfig, devices } from '@playwright/test';
-import * as dotenv from 'dotenv';
+import dotenv from 'dotenv';
+import path from 'path';
+import fs from 'fs';
 
-dotenv.config({path:'test-data/Login.env'}); // loads .env automatically
 
+// Only load .env file locally — on CI, secrets come from GitHub Actions
+const envPath = path.resolve(__dirname, 'test-data/Login.env');
+if (fs.existsSync(envPath)) {
+  dotenv.config({ path: envPath });
+}
+
+// ── Validate required env vars are present ────────────────────────────────
+const requiredEnvVars = ['PARABANK_URL', 'PARABANK_USERNAME', 'PARABANK_PASSWORD'];
+const missingVars = requiredEnvVars.filter(key => !process.env[key]);
+
+if (missingVars.length > 0) {
+  throw new Error(
+    `Missing required environment variables: ${missingVars.join(', ')}\n` +
+    `Local: define them in test-data/Login.env\n` +
+    `CI: define them in GitHub Secrets`
+  );
+}
 
 /**
  * Read environment variables from file.

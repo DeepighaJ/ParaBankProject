@@ -2,13 +2,10 @@ import { test as base, Page } from "@playwright/test";
 import LoginPage from "../pages/LoginPage";
 export { expect } from "@playwright/test";
 
-// ── Credentials ────────────────────────────────────────────────────────────
-// Prefer environment variables so secrets stay out of source control.
-// Fall back to defaults only for local dev convenience.
-const BASE_URL =
-  process.env.PARABANK_URL as string;
-const USERNAME = process.env.PARABANK_USERNAME as string;
-const PASSWORD = process.env.PARABANK_PASSWORD as string;
+// ── Credentials — loaded from Login.env locally, GitHub Secrets on CI ─────
+const BASE_URL = process.env.PARABANK_URL!;
+const USERNAME = process.env.PARABANK_USERNAME!;
+const PASSWORD = process.env.PARABANK_PASSWORD!;
 
 // ── Fixture types ──────────────────────────────────────────────────────────
 type MyFixtures = {
