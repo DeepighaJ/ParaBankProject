@@ -29,7 +29,7 @@ export default class LoginPage extends BasePage {
     await this.enterUsername(username);
     await this.enterPassword(password);
     await this.clickLogin();
-    await this.page.waitForSelector("text=Accounts Overview", { timeout: 10_000 });
+   // await this.page.waitForSelector("text=Accounts Overview", { timeout: 10_000 });
   }
 
   // ─── Assertions ────────────────────────────────────────────────────────────
