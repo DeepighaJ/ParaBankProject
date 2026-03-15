@@ -19,7 +19,7 @@ export const test = base.extend<MyFixtures>({
     const loginPage = new LoginPage(page);
 
     await loginPage.goto(BASE_URL);
-    // `login()` encapsulates credentials + post-login wait (no magic timeouts)
+    // `login()` encapsulates credentials + post-login wait
     await loginPage.login(USERNAME, PASSWORD);
 
     await use(page);
