@@ -29,11 +29,9 @@ jobs:
         retention-days: 30
     # Step 5 - Inject secrets as environment variables
     - name: Run Playwright Tests
-      env:
-        PARABANK_URL: ${{ secrets.PARABANK_URL }}
-        PARABANK_USERNAME: ${{ secrets.PARABANK_USERNAME }}
-        PARABANK_PASSWORD: ${{ secrets.PARABANK_PASSWORD }}
       run: npx playwright test
+    
+      
     # Step 6 - Upload test report on failure
     - name: Upload Playwright Report
       uses: actions/upload-artifact@v5
@@ -42,4 +40,9 @@ jobs:
         name: playwright-report-${{ github.run_id }}-${{ github.run_attempt }}
         path: playwright-report/
         retention-days: 7
+
+    env:
+      PARABANK_URL: ${{ secrets.PARABANK_URL }}
+      PARABANK_USERNAME: ${{ secrets.PARABANK_USERNAME }}
+      PARABANK_PASSWORD: ${{ secrets.PARABANK_PASSWORD }}
     
